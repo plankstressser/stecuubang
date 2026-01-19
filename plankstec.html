@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mr.Plankton | EL SAVADOR 2050</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:'Orbitron',sans-serif;
+  background:#000;
+  color:#00ffff;
+  overflow:hidden;
+}
+
+.bg{
+  position:fixed;
+  inset:0;
+  background:radial-gradient(circle at top,#001f3f,#000);
+}
+
+.grid{
+  position:absolute;
+  bottom:-40%;
+  left:0;
+  right:0;
+  height:80%;
+  background:
+    linear-gradient(transparent 95%,rgba(0,255,255,.25) 96%),
+    linear-gradient(90deg,transparent 95%,rgba(0,255,255,.25) 96%);
+  background-size:40px 40px;
+  transform:perspective(600px) rotateX(65deg);
+  animation:gridMove 4s linear infinite;
+}
+@keyframes gridMove{from{background-position:0 0}to{background-position:0 40px}}
+
+.car{
+  position:absolute;
+  top:30%;
+  left:-200px;
+  width:140px;
+  height:8px;
+  background:linear-gradient(90deg,#00ffff,#ffffff);
+  box-shadow:0 0 25px #00ffff;
+  animation:fly 6s linear infinite;
+}
+.car:nth-child(2){top:45%;animation-duration:8s}
+.car:nth-child(3){top:60%;animation-duration:10s}
+@keyframes fly{to{transform:translateX(140vw)}}
+
+.center{
+  position:relative;
+  z-index:10;
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+
+h1{
+  font-size:3.2rem;
+  text-shadow:0 0 25px #00ffff;
+  animation:glitch .15s infinite;
+}
+
+h2{
+  margin-top:10px;
+  font-family:'Share Tech Mono',monospace;
+  color:#ff00ff;
+}
+
+.roles{
+  margin-top:30px;
+  font-size:1.6rem;
+  color:#00ff00;
+  height:40px;
+}
+
+.error{
+  margin-top:40px;
+  font-size:2.5rem;
+  color:#ff0033;
+  text-shadow:0 0 30px #ff0033;
+  animation:flicker 1s infinite;
+}
+
+@keyframes glitch{0%{transform:translate(0)}25%{transform:translate(2px,-2px)}50%{transform:translate(-2px,2px)}75%{transform:translate(1px,-1px)}100%{transform:translate(0)}}
+@keyframes flicker{0%,100%{opacity:1}50%{opacity:.3}}
+</style>
+</head>
+<body>
+<div class="bg"></div>
+<div class="grid"></div>
+<div class="car"></div>
+<div class="car"></div>
+<div class="car"></div>
+
+<div class="center">
+  <h1>Hello User 👋</h1>
+  <h2>Welcome to portfolio Mr.Plankton 🥱</h2>
+  <div class="roles" id="roles"></div>
+  <div class="error">SYSTEM ERROR // FUCK SOCIETY</div>
+</div>
+
+<script>
+const roles=['Fullstack Developer','Software Engineer','Ethical Hacking','Security Operations Center','Network Engineer'];
+let i=0;const el=document.getElementById('roles');
+setInterval(()=>{el.textContent=roles[i];i=(i+1)%roles.length},1500);
+</script>
+</body>
+</html>
